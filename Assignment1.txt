@@ -1,4 +1,4 @@
-
+﻿
 --Assignment 1
 
 -- Authors: 	Juan David Correa Cano
@@ -41,13 +41,14 @@ CREATE UNDO TABLESPACE recovey_workshop1 DATAFILE
 -- 4.- Create a DBA user and assign it to the tablespace called "vehicles_fleet​", this user has unlimited
 --     space on the tablespace.
 
-
-
-
+CREATE USER adminDBA
+IDENTIFIED BY admin123
+DEFAULT TABLESPACE vehicles_fleet
+QUOTA UNLIMITED ON vehicles_fleet;
 
 -- 5.- Assign the dba role and permissions to connect to the user just created.
 
-
+GRANT DBA, CREATE SESSION TO adminDBA;
 
 
 -- 6.- Create 3 profiles.
