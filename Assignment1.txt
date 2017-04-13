@@ -8,8 +8,21 @@
 -- 1.- Create 2 Tablespaces: one with 1 Gb and 2 datafiles, tablespace should be named "vehicles_fleet​"
 -- and the other one with the name "test_purposes​" with 500 Mb and 1 datafile.
 
+CREATE TABLESPACE vehicles_fleet DATAFILE
+'vehicles_fleet_1' SIZE 800M,
+'vehicles_fleet_2' SIZE 200M
+AUTOEXTEND ON NEXT 500K MAXSIZE 500M
+EXTENT MANAGEMENT LOCAL
+SEGMENT SPACE MANAGEMENT AUTO
+ONLINE;
 
-
+CREATE TABLESPACE test_purposes DATAFILE
+'test_purposes_1' SIZE 400M,
+'test_purposes_2' SIZE 100M
+AUTOEXTEND ON NEXT 500K MAXSIZE 300M
+EXTENT MANAGEMENT LOCAL
+SEGMENT SPACE MANAGEMENT AUTO
+ONLINE;
 
 
 
