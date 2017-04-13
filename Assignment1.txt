@@ -31,9 +31,7 @@ CREATE UNDO TABLESPACE recovey_workshop1 DATAFILE
 
 -- 3.- Set the undo tablespace to be used in the system.
 
-
-
-
+ALTER SYSTEM SET UNDO_TABLESPACE = recovery_workshop1;
 
 
 -- 4.- Create a DBA user and assign it to the tablespace called "vehicles_fleet​", this user has unlimited
@@ -43,6 +41,7 @@ CREATE USER adminDBA
 IDENTIFIED BY admin123
 DEFAULT TABLESPACE vehicles_fleet
 QUOTA UNLIMITED ON vehicles_fleet;
+
 
 -- 5.- Assign the dba role and permissions to connect to the user just created.
 
@@ -59,6 +58,7 @@ PASSWORD_LIFE_TIME 40
 IDLE_TIME 15
 FAILED_LOGIN_ATTEMPTS 4;
 
+
 --	b. Profile 2: "finance_profile​" password life 15 days, one session per user, 5 minutes idle, 2
 --			failed login attempts.
 
@@ -68,6 +68,7 @@ PASSWORD_LIFE_TIME 15
 IDLE_TIME 5
 FAILED_LOGIN_ATTEMPTS 2;
 
+
 --	c. Profile 3: "service_profile​" password life 20 days, one session per user, 10 minutes idle, 3
 --			failed login attempts.
 
@@ -76,6 +77,7 @@ SESSIONS_PER_USER 1
 PASSWORD_LIFE_TIME 20
 IDLE_TIME 10
 FAILED_LOGIN_ATTEMPTS 3;
+
 
 --	d. Profile 4: "development​" password life 100 days, two session per user, 30 minutes idle, no
 --			failed login attempts.
