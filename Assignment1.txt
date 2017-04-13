@@ -17,9 +17,7 @@ SEGMENT SPACE MANAGEMENT AUTO
 ONLINE;
 
 CREATE TABLESPACE test_purposes DATAFILE
-'test_purposes_1' SIZE 400M,
-'test_purposes_2' SIZE 100M
-AUTOEXTEND ON NEXT 500K MAXSIZE 300M
+'test_purposes_1' SIZE 500M
 EXTENT MANAGEMENT LOCAL
 SEGMENT SPACE MANAGEMENT AUTO
 ONLINE;
@@ -104,3 +102,5 @@ FAILED_LOGIN_ATTEMPTS 0;
 
 
 -- 10. Delete the tablespace called "test_purposes​".
+
+DROP TABLESPACE test_purposes including contents and datafiles;
