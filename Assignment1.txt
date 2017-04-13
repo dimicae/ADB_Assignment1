@@ -91,6 +91,11 @@ FAILED_LOGIN_ATTEMPTS 0;
 
 -- 7.- Create 1 role with the name "without_privileges​" and revoke ALL PRIVILEGES.
 
+CREATE ROLE without_privileges
+NOT IDENTIFIED;
+
+GRANT ALL PRIVILEGES TO without_privileges;
+REVOKE ALL PRIVILEGES FROM without_privileges; -- para quitar todos los privilegios al rol, es necesarios antes haberlos garantizado.
 
 
 -- 8.- Create 4 users, assign them the tablespace "vehicles_fleet​"; profiles created should be used for the
