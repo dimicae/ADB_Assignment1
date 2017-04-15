@@ -102,7 +102,38 @@ REVOKE ALL PRIVILEGES FROM without_privileges; -- para quitar todos los privileg
 --	users, all the users should be allow to connect to the database. Use the role "without_privileges"​ for users associate with profiles: manager_profile​, 
 --	finance_profile​ and service_profile​.
 
+CREATE USER user1
+IDENTIFIED BY admin123
+DEFAULT TABLESPACE vehicles_fleet
+QUOTA 10M ON vehicles_fleet
+PROFILE MANAGER_PROFILE;
 
+CREATE USER user2
+IDENTIFIED BY admin123
+DEFAULT TABLESPACE vehicles_fleet
+QUOTA 10M ON vehicles_fleet
+PROFILE FINANCE_PROFILE;
+
+CREATE USER user3
+IDENTIFIED BY admin123
+DEFAULT TABLESPACE vehicles_fleet
+QUOTA 10M ON vehicles_fleet
+PROFILE SERVICE_PROFILE;
+
+CREATE USER user4
+IDENTIFIED BY admin123
+DEFAULT TABLESPACE vehicles_fleet
+QUOTA 10M ON vehicles_fleet
+PROFILE development;
+
+GRANT CREATE SESSION TO user1;
+GRANT CREATE SESSION TO user2;
+GRANT CREATE SESSION TO user3;
+GRANT CREATE SESSION TO user4;
+
+GRANT without_privileges TO user1;
+GRANT without_privileges TO user2;
+GRANT without_privileges TO user3;
 
 -- 9. Lock the users associate with profiles: manager_profile​, finance_profile​ and service_profile.
 
