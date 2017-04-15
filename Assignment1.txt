@@ -137,7 +137,9 @@ GRANT without_privileges TO user3;
 
 -- 9. Lock the users associate with profiles: manager_profile​, finance_profile​ and service_profile.
 
-
+ALTER USER USER1 ACCOUNT LOCK;
+ALTER USER USER2 ACCOUNT LOCK;
+ALTER USER USER3 ACCOUNT LOCK;
 
 -- 10. Delete the tablespace called "test_purposes​".
 
